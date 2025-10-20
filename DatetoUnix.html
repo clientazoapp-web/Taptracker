@@ -6,16 +6,21 @@
 </head>
 <body>
   <script>
-    // Get query param ?date=YYYY-MM-DDTHH:mm
+    // Obtener el parámetro "date" de la URL
     const params = new URLSearchParams(window.location.search);
     const dateStr = params.get("date");
 
+    let output;
     if (dateStr) {
-      const unix = Math.floor(new Date(dateStr).getTime() / 1000);
-      document.write(unix);
+      // Unix timestamp en segundos
+      output = Math.floor(new Date(dateStr).getTime() / 1000);
     } else {
-      document.write("Please provide ?date=YYYY-MM-DDTHH:mm");
+      output = "Error: use ?date=YYYY-MM-DDTHH:mm";
     }
+
+    // Mostrar solo el valor como texto plano
+    document.body.innerText = output;
   </script>
 </body>
 </html>
+
