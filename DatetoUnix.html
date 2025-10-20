@@ -5,22 +5,21 @@
   <title>Date → Unix Timestamp API</title>
 </head>
 <body>
-  <script>
-    // Obtener el parámetro "date" de la URL
-    const params = new URLSearchParams(window.location.search);
-    const dateStr = params.get("date");
+<script>
+  // Obtener parámetro ?date=YYYY-MM-DDTHH:mm
+  const params = new URLSearchParams(window.location.search);
+  const dateStr = params.get("date");
 
-    let output;
-    if (dateStr) {
-      // Unix timestamp en segundos
-      output = Math.floor(new Date(dateStr).getTime() / 1000);
-    } else {
-      output = "Error: use ?date=YYYY-MM-DDTHH:mm";
-    }
-
-    // Mostrar solo el valor como texto plano
-    document.body.innerText = output;
-  </script>
+  if (dateStr) {
+    // Unix timestamp en segundos
+    const unix = Math.floor(new Date(dateStr).getTime() / 1000);
+    // DEVUELVE SOLO TEXTO PLANO
+    document.body.innerText = unix;
+  } else {
+    document.body.innerText = "Error: usa ?date=YYYY-MM-DDTHH:mm";
+  }
+</script>
 </body>
 </html>
+
 
