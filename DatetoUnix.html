@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Date → Unix Timestamp API</title>
+</head>
+<body>
+  <script>
+    // Get query param ?date=YYYY-MM-DDTHH:mm
+    const params = new URLSearchParams(window.location.search);
+    const dateStr = params.get("date");
+
+    if (dateStr) {
+      const unix = Math.floor(new Date(dateStr).getTime() / 1000);
+      document.write(unix);
+    } else {
+      document.write("Please provide ?date=YYYY-MM-DDTHH:mm");
+    }
+  </script>
+</body>
+</html>
